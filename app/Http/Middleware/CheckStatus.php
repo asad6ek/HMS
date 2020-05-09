@@ -16,15 +16,11 @@ class CheckStatus
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user() && Auth::user()->isAdmin())
+        if(Auth::user() and Auth::user()->isAdmin())
         {
             return $next($request);
         }
-        elseif (Auth::user() && Auth::user()->isAdmin())
-        {
-
-        }
-       else
+        else
             {
             return redirect('/');
             }

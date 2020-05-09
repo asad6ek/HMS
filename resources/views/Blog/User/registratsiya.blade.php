@@ -11,7 +11,7 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">{{__('Bemor Qo`shish')}}</h1>
                     </div>
-                    <form class="user"  method="POST" action="{{ route('patient_insert') }}">
+                    <form class="user"  method="POST" action="{{  }}">
                         @csrf
 
 
@@ -166,7 +166,7 @@
 
                             </div>
 
-                            <div class="col-sm-6 mb-3 mb-sm-0" >
+                            <div class="col-sm-2 mb-3 mb-sm-0" >
 
                                 <input id="check" type="checkbox" class="form-control form-check " style="width: 20px ;height: 20px" name="check"  onclick="checkboxf(this)"  value="false">
 

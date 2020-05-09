@@ -7,23 +7,15 @@ Route::get('/', function () {
     return view('bosh_panel/welcome');
 });
 
-Route::get('/reg', function () {
-    return view('auth\register');
-});
-Route::get('/reg_bemor', function () {
-    return view('auth\register');
-})->name('reg_bemor');
-Route::get('/kassa', function () {
-    return view('auth\register');
-})->name('kassa');
+
 
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['status','auth']], function () {
+
+Route::group(['middleware' => ['status_admin','auth']], function () {
 
     $groupData=
         [
@@ -33,9 +25,40 @@ Route::group(['middleware' => ['status','auth']], function () {
     Route::group($groupData, function () {
 
         Route::resource('index','MainController')->names('Blog.Admin.admin');
-        Route::resource('register','MainController')->names('Blog.Admin.admin');
+        Route::resource('register','UserRegController')->names('Blog.Admin.user_reg');
 
 });
 
 });
 
+Route::group(['middleware' => ['status_user','auth']], function () {
+
+    $groupData=
+        [
+            'namespace' => 'Blog\User',
+        ];
+    Route::group($groupData, function () {
+        Route::resource('/home','PatientController')->names('home');
+
+        Route::get('/reg_bemor', function () {
+            return view('Blog.User.registratsiya');
+        })->name('reg_bemor');
+
+        Route::get('/kassa', function () {
+            return view('Blog.User.kassa');
+        })->name('kassa');
+
+   Route::get('/harj', function () {
+            return view('Blog.User.harj');
+        })->name('harj');
+
+   Route::get('/servis', function () {
+            return view('Blog.User.servis');
+        })->name('servis');
+
+
+//        Route::resource('register','UserRegController')->names('Blog.Admin.user_reg');
+    });
+
+});
+Route::get('user/index','Blog\User\MainController@index');

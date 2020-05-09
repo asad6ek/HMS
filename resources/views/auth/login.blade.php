@@ -44,11 +44,9 @@ Login
                                     <input id="password" name="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" value="{{ old('password') }}" placeholder="Parol" autocomplete="current-password" required>
 
                                     @if($errors->has('password'))
-                                    @error('password')
-                                    <span class="invalid-feedback " role="alert">
+                                        <span class="invalid-feedback " role="alert">
                                         <strong>{{$errors->frist('password')}}</strong>
                                     </span>
-                                    @enderror
                                     @endif
                                 </div>
 

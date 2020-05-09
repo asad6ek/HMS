@@ -35,13 +35,13 @@
         <div id="BuxalteriyaPages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
 
-{{--                <a class="collapse-item" href="{{route('kassa')}}">{{__('Kassa')}}</a>--}}
-{{--                <a class="collapse-item" href="{{route('xarajatlar')}}">{{__('Xarajatlar')}}</a>--}}
-{{--                <hr class="sidebar-dark">--}}
-{{--                <h6 class="collapse-header">Buxalteriya</h6>--}}
-{{--                <a class="collapse-item" href="{{route('firmalar')}}">{{__('Firmalar')}}</a>--}}
-{{--                <a class="collapse-item" href="{{route('tranzaction')}}">{{__('Tranzaksiya')}}</a>--}}
-{{--                <a class="collapse-item" href="{{route('tushumlar')}}">{{__('Tushumlar')}}</a>--}}
+                <a class="collapse-item" href="{{url('kassa')}}">{{__('Kassa')}}</a>
+                <a class="collapse-item" href="{{url('xarj')}}">{{__('Xarajatlar')}}</a>
+                <hr class="sidebar-dark">
+                <h6 class="collapse-header">Buxalteriya</h6>
+                <a class="collapse-item" href="{{url('firmalar')}}">{{__('Firmalar')}}</a>
+                <a class="collapse-item" href="{{url('tranzaction')}}">{{__('Tranzaksiya')}}</a>
+                <a class="collapse-item" href="{{url('tushumlar')}}">{{__('Tushumlar')}}</a>
 
             </div>
         </div>
@@ -60,7 +60,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Utilities:</h6>
                 <a class="collapse-item" href="utilities-color.html">{{__('Dori')}}</a>
-{{--                <a class="collapse-item" href="{{route('servis')}}">{{__('Servis')}}</a>--}}
+                <a class="collapse-item" href="{{route('servis')}}">{{__('Servis')}}</a>
                 <a class="collapse-item" href="utilities-animation.html">{{__('O`rin')}}</a>
             </div>
         </div>
@@ -70,7 +70,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="#">
             <i class="fas fa-fw fa-user-cog"></i>
             <span>{{__('Doktorlar')}}</span></a>
     </li>

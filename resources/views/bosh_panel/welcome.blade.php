@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/1.2.png')}}" type="image/x-icon">
     <!-- Stylesheets-->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!--[if lt IE 10]>
-    <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+    <script src="{{asset('js/html5shiv.min.js')}}"></script>
+
 </head>
 <body>
 <div class="preloader">
@@ -58,23 +58,25 @@
                 <div class="rd-navbar-inner-outer">
                     <div class="rd-navbar-inner">
                         <!-- RD Navbar Panel-->
-                        <div class="rd-navbar-panel">
+                        <div class="rd-navbar-panel navbar-dark">
                             <!-- RD Navbar Toggle-->
-                            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                            <button class="rd-navbar-toggle navbar-dark" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                             <!-- RD Navbar Brand-->
-                            <div class="rd-navbar-brand"><a class="brand" href="{{url('admin/index')}}">
+                            <div class="rd-navbar-brand">
+                                <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp"> <a class="brand" href="{{url('#')}}">
+                                   H_M_S
+                                </a></span></h3>
 
-                                    {{$p=\App\SBlog\Core\BlogApp::get_instance()->getProperty('admin_email')}}
-                                </a></div>
-
+                            </div>
                         </div>
+
                         <div class="rd-navbar-right rd-navbar-nav-wrap">
                             <div class="rd-navbar-aside">
                                 <ul class="rd-navbar-contacts-2">
                                     <li>
                                         <div class="unit unit-spacing-xs">
                                             <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
-                                            <div class="unit-body"><a class="phone" href="tel:#">+1 718-999-3939</a></div>
+                                            <div class="unit-body"><a class="phone" href="tel:#">+998 (99) 424-65-54</a></div>
                                         </div>
                                     </li>
                                     <li>
@@ -84,87 +86,39 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <ul class="list-share-2">
-                                    <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                                <br>
+
+                                <ul class="rd-navbar-contacts-2">
+                                    <li>
+                                      @if(isset(Auth::user()->id))
+                                              <a class="brand icon mdi mdi-account-off" href="{{ route('logout') }}"  onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+
+                                        @else    <a class="brand icon mdi mdi-account-network" href="{{url('/login')}}">Login</a>
+                                          @endif
+                                    </li>
+
                                 </ul>
                             </div>
                             <div class="rd-navbar-main">
                                 <!-- RD Navbar Nav-->
                                 <ul class="rd-navbar-nav">
-                                    <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Home</a>
+                                    <li class="rd-nav-item active"><a class="rd-nav-link" href="#">{{__('Bosh Menyu')}}</a>
                                     </li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="about-us.html">About us</a>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">About us</a>
                                     </li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="typography.html">Typography</a>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">Typography</a>
                                     </li>
-                                    <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contacts</a>
+                                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">Contacts</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-open rd-navbar-fixed-element-1" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
-                            <div class="project-hamburger"><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span><span class="project-hamburger-arrow"></span>
-                            </div>
-                        </div>
-                        <div class="rd-navbar-project">
-                            <div class="rd-navbar-project-header">
-                                <h5 class="rd-navbar-project-title">Gallery</h5>
-                                <div class="rd-navbar-project-hamburger rd-navbar-project-hamburger-close" data-multitoggle=".rd-navbar-inner" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate">
-                                    <div class="project-close"><span></span><span></span></div>
-                                </div>
-                            </div>
-                            <div class="rd-navbar-project-content rd-navbar-content">
-                                <div>
-                                    <div class="row gutters-20" data-lightgallery="group">
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative"><a href="images/project-1-1200x800-original.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure"><img src="images/project-1-195x164.jpg" alt="" width="195" height="164"/>
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative"><a href="images/project-2-1200x800-original.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure"><img src="images/project-2-195x164.jpg" alt="" width="195" height="164"/>
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative"><a href="images/project-3-1200x800-original.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure"><img src="images/project-3-195x164.jpg" alt="" width="195" height="164"/>
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative"><a href="images/project-4-1200x800-original.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure"><img src="images/project-4-195x164.jpg" alt="" width="195" height="164"/>
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative"><a href="images/project-5-1200x800-original.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure"><img src="images/project-5-195x164.jpg" alt="" width="195" height="164"/>
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                                        </div>
-                                        <div class="col-6">
-                                            <!-- Thumbnail Creative-->
-                                            <article class="thumbnail thumbnail-creative"><a href="images/project-6-1200x800-original.jpg" data-lightgallery="item">
-                                                    <div class="thumbnail-creative-figure"><img src="images/project-6-195x164.jpg" alt="" width="195" height="164"/>
-                                                    </div>
-                                                    <div class="thumbnail-creative-caption"><span class="icon thumbnail-creative-icon linearicons-magnifier"></span></div></a></article>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
                     </div>
                 </div>
             </nav>
@@ -172,33 +126,56 @@
     </header>
     <!-- Swiper-->
     <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="true" data-autoplay="5000" data-simulate-touch="false" data-slide-effect="fade">
+
+
         <div class="swiper-wrapper text-sm-left">
+
             <div class="swiper-slide context-dark" data-slide-bg="images/slide-1-1920x753.jpg">
                 <div class="swiper-slide-caption section-md">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-9 col-md-8 col-lg-7 col-xl-7 offset-lg-1 offset-xxl-0">
-                                <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">Perfect pizza</span></h1>
-                                <p class="big swiper-text" data-caption-animate="fadeInLeft" data-caption-delay="300">Experience the taste of a perfect pizza at PizzaHouse, one of the best restaurants!</p><a class="button button-lg button-primary button-winona button-shadow-2" href="#" data-caption-animate="fadeInUp" data-caption-delay="300">View our menu</a>
+                            <div class="col-sm-auto col-md-auto  offset-lg-1 offset-xxl-0">
+
+                                <h1 class="oh swiper-title">
+                                    <span class="d-lg-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">
+                                        H_M_S
+                                    </span>
+                                </h1>
+
+                                <p class="big swiper-text" data-caption-animate="fadeInLeft" data-caption-delay="300">
+                                   Birinchi Laravelda yozgan web saytim
+                                </p>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
             <div class="swiper-slide context-dark" data-slide-bg="images/slide-2-1920x753.jpg">
                 <div class="swiper-slide-caption section-md">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-8 col-lg-7 offset-lg-1 offset-xxl-0">
-                                <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="0">Quality ingredients</span></h1>
-                                <p class="big swiper-text" data-caption-animate="fadeInRight" data-caption-delay="300">We use only the best ingredients to make one-of-a-kind pizzas for our customers.</p>
-                                <div class="button-wrap oh"><a class="button button-lg button-primary button-winona button-shadow-2" href="#" data-caption-animate="slideInUp" data-caption-delay="0">View our menu</a></div>
+                            <div class="col-sm-12 col-lg-12 offset-lg-1 offset-xxl-0">
+                                <h1 class="oh swiper-title">
+                                    <span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="0">
+                                        MVC
+                                    </span>
+                                </h1>
+
+                                <p class="big swiper-text" data-caption-animate="fadeInRight" data-caption-delay="300">
+                                    mvc
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <!-- Swiper Pagination-->
         <div class="swiper-pagination" data-bullet-custom="true"></div>
         <!-- Swiper Navigation-->
@@ -215,6 +192,7 @@
             </div>
         </div>
     </section>
+
     <!-- What We Offer-->
     <section class="section section-md bg-default">
         <div class="container">
@@ -224,11 +202,9 @@
                     <div class="oh-desktop">
                         <!-- Services Terri-->
                         <article class="services-terri wow slideInUp">
-                            <div class="services-terri-figure"><img src="images/menu-1-370x278.jpg" alt="" width="370" height="278"/>
+                            <div class="services-terri-figure"><img src="{{asset('img/920.jpg')}}" alt="" width="370" height="278"/>
                             </div>
-                            <div class="services-terri-caption"><span class="services-terri-icon linearicons-leaf"></span>
-                                <h5 class="services-terri-title"><a href="#">Salads</a></h5>
-                            </div>
+
                         </article>
                     </div>
                 </div>
@@ -236,7 +212,7 @@
                     <div class="oh-desktop">
                         <!-- Services Terri-->
                         <article class="services-terri wow slideInDown">
-                            <div class="services-terri-figure"><img src="images/menu-2-370x278.jpg" alt="" width="370" height="278"/>
+                            <div class="services-terri-figure"><img src="{{asset('images/menu-2-370x278.jpg')}}" alt="" width="370" height="278"/>
                             </div>
                             <div class="services-terri-caption"><span class="services-terri-icon linearicons-pizza"></span>
                                 <h5 class="services-terri-title"><a href="#">Pizzas</a></h5>
@@ -248,7 +224,7 @@
                     <div class="oh-desktop">
                         <!-- Services Terri-->
                         <article class="services-terri wow slideInUp">
-                            <div class="services-terri-figure"><img src="images/menu-3-370x278.jpg" alt="" width="370" height="278"/>
+                            <div class="services-terri-figure"><img src="{{asset('images/menu-3-370x278.jpg')}}" alt="" width="370" height="278"/>
                             </div>
                             <div class="services-terri-caption"><span class="services-terri-icon linearicons-hamburger"></span>
                                 <h5 class="services-terri-title"><a href="#">Burgers</a></h5>
@@ -260,7 +236,7 @@
                     <div class="oh-desktop">
                         <!-- Services Terri-->
                         <article class="services-terri wow slideInDown">
-                            <div class="services-terri-figure"><img src="images/menu-4-370x278.jpg" alt="" width="370" height="278"/>
+                            <div class="services-terri-figure"><img src="{{asset('images/menu-4-370x278.jpg')}}" alt="" width="370" height="278"/>
                             </div>
                             <div class="services-terri-caption"><span class="services-terri-icon linearicons-ice-cream"></span>
                                 <h5 class="services-terri-title"><a href="#">Desserts</a></h5>
@@ -637,87 +613,7 @@
 
     <!-- Page Footer-->
     <footer class="section footer-modern context-dark footer-modern-2">
-        <div class="footer-modern-line">
-            <div class="container">
-                <div class="row row-50">
-                    <div class="col-md-6 col-lg-4">
-                        <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">What We Offer</span></h5>
-                        <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
-                            <li><a href="#">Pizzas</a></li>
-                            <li><a href="#">Burgers</a></li>
-                            <li><a href="#">Salads</a></li>
-                            <li><a href="#">Drinks</a></li>
-                            <li><a href="#">Seafood</a></li>
-                            <li><a href="#">Drinks</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Information</span></h5>
-                        <ul class="footer-modern-list d-inline-block d-sm-block wow fadeInUp">
-                            <li><a href="about-us.html">About us</a></li>
-                            <li><a href="#">Latest News</a></li>
-                            <li><a href="#">Our Menu</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Shop</a></li>
-                            <li><a href="contacts.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 col-xl-5">
-                        <h5 class="footer-modern-title oh-desktop"><span class="d-inline-block wow slideInLeft">Newsletter</span></h5>
-                        <p class="wow fadeInRight">Sign up today for the latest news and updates.</p>
-                        <!-- RD Mailform-->
-                        <form class="rd-form rd-mailform rd-form-inline rd-form-inline-sm oh-desktop" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                            <div class="form-wrap wow slideInUp">
-                                <input class="form-input" id="subscribe-form-2-email" type="email" name="email" data-constraints="@Email @Required"/>
-                                <label class="form-label" for="subscribe-form-2-email">Enter your E-mail</label>
-                            </div>
-                            <div class="form-button form-button-2 wow slideInRight">
-                                <button class="button button-sm button-icon-3 button-primary button-winona" type="submit"><span class="d-none d-xl-inline-block">Subscribe</span><span class="icon mdi mdi-telegram d-xl-none"></span></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-modern-line-2">
-            <div class="container">
-                <div class="row row-30 align-items-center">
-                    <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
-                        <div class="row row-30 align-items-center text-lg-center">
-                            <div class="col-md-7 col-xl-6"><a class="brand" href="index.html"><img src="images/logo-inverse-198x66.png" alt="" width="198" height="66"/></a></div>
-                            <div class="col-md-5 col-xl-6">
-                                <div class="iso-1"><span><img src="images/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-12 col-lg-8 col-xl-8 oh-desktop">
-                        <div class="group-xmd group-sm-justify">
-                            <div class="footer-modern-contacts wow slideInUp">
-                                <div class="unit unit-spacing-sm align-items-center">
-                                    <div class="unit-left"><span class="icon icon-24 mdi mdi-phone"></span></div>
-                                    <div class="unit-body"><a class="phone" href="tel:#">+1 718-999-3939</a></div>
-                                </div>
-                            </div>
-                            <div class="footer-modern-contacts wow slideInDown">
-                                <div class="unit unit-spacing-sm align-items-center">
-                                    <div class="unit-left"><span class="icon mdi mdi-email"></span></div>
-                                    <div class="unit-body"><a class="mail" href="mailto:#">info@demolink.org</a></div>
-                                </div>
-                            </div>
-                            <div class="wow slideInRight">
-                                <ul class="list-inline footer-social-list footer-social-list-2 footer-social-list-3">
-                                    <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                                    <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-modern-line-3">
+       <div class="footer-modern-line-3">
             <div class="container">
                 <div class="row row-10 justify-content-between">
                     <div class="col-md-6"><span>514 S. Magnolia St. Orlando, FL 32806</span></div>
@@ -733,8 +629,8 @@
 <!-- Global Mailform Output-->
 <div class="snackbars" id="form-output-global"></div>
 <!-- Javascript-->
-<script src="js/core.min.js"></script>
-<script src="js/script.js"></script>
+<script src="{{asset('js/core.min.js')}}"></script>
+<script src="{{asset('js/script.js')}}"></script>
 <!-- coded by Himic-->
 </body>
 </html>
