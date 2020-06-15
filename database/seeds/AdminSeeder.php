@@ -11,21 +11,39 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        $data=[];
-        $data[]=
+
+        $data =
             [
 
+                [
+                    'name'=>'Admin',
+                    'email'=>'admin@hms',
+                    'password'=>bcrypt('admin1'),
+                    'remember_token'=> csrf_token(),
+                ],
+                [
+                    'name'=>'Admin',
+                    'email'=>'admin2@hms',
+                    'password'=>bcrypt('admin1'),
+                    'remember_token'=> csrf_token(),
+                ],
+                [
+                    'name'=>'Admin',
+                    'email'=>'admin3@hms',
+                    'password'=>bcrypt('admin1'),
+                    'remember_token'=> csrf_token(),
+                ],
+                               [
+                    'name'=>'Admin',
+                    'email'=>'admin4@hms',
+                    'password'=>bcrypt('admin1'),
+                    'remember_token'=> csrf_token(),
+                ],
 
-                'name'=>'Admin',
-                'email'=>'admin@hms',
-                'password'=>bcrypt('admin1'),
-                'remember_token'=> csrf_token(),
 
          ];
 
         DB::table('users')->insert($data );
-        $data[]=[
 
-        ];
     }
 }

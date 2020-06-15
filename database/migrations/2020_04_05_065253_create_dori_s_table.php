@@ -22,7 +22,7 @@ class CreateDoriSTable extends Migration
             $table->integer('ol_summ');
             $table->integer('dona');
             $table->integer('d_baxosi');
-
+            $table->timestamps();
         });
     }
 

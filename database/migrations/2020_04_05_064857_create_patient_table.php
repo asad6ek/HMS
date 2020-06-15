@@ -20,10 +20,11 @@ class CreatePatientTable extends Migration
             $table->string('yoshi')->nullable();
             $table->string('adress')->nullable();
             $table->string('tel')->nullable();
-            $table->timestamp('kelgan_sana')->nullable();
+            $table->date('kelgan_sana')->nullable();
             $table->string('dok_name',50)->nullable();
             $table->string('pnomer',10);
             $table->enum('status',[0,1])->default(0);
+            $table->timestamps();
 
 
 

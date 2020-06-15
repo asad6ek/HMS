@@ -19,8 +19,7 @@ class CreateHarjTable extends Migration
             $table->integer('summ');
             $table->integer('soni')->default(0);
             $table->integer('um_summ');
-            $table->timestamp('sana')->nullable();
-
+            $table->timestamps();
         });
     }
 

@@ -16,9 +16,13 @@ class CreateTashxisTable extends Migration
 
         Schema::create('tashxis', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->bigIncrements('id')->unsigned();
-            $table->integer('pid')->unsigned();
+            $table->bigInteger('patient_id')->unsigned();
             $table->string('tashxis',5000);
+            $table->timestamps();
+            $table->foreign('patient_id')
+                ->references('id')->on('patients')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
 
         });

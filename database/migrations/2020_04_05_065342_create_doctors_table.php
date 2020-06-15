@@ -23,7 +23,7 @@ class CreateDoctorsTable extends Migration
             $table->string('positition');
             $table->date('sana');
             $table->integer('maoshi');
-
+            $table->timestamps();
         });
     }
 

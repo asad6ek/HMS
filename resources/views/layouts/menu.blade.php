@@ -5,7 +5,7 @@
 
 @section('sidebar')
     <li class="nav-item">
-        <a class="nav-link" href="{{route('reg_bemor')}}">
+        <a class="nav-link" href="{{route('patient.create')}}">
             <i class="fas fa-fw fa-user-edit"></i>
             <span>{{__('Registratsiya')}}</span></a>
     </li>

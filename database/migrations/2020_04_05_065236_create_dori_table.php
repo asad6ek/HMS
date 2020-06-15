@@ -20,7 +20,7 @@ class CreateDoriTable extends Migration
             $table->date('sana');
             $table->integer('ol_summ');
             $table->integer('dona');
-
+            $table->timestamps();
         });
     }
 

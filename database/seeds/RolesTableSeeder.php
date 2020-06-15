@@ -13,13 +13,13 @@
         {
             $data = [
                 [
-                    'name' => 'disabled',
+                    'name' => 'admin',
                 ],
                 [
                     'name' => 'user',
                 ],
                 [
-                    'name' => 'admin',
+                    'name' => 'disabled',
                 ],
             ];
             DB::table('roles')->insert($data);

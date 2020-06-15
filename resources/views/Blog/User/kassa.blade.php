@@ -40,20 +40,20 @@
                     </tfoot>
                     <tbody>
 
-                    @foreach($patient as $p)
-                    <tr>
-                    <td>{{$p->id}}</td>
-                    <td>{{$p->pname." ".$p->psurname}}</td>
-                    <td>{{$p->yoshi}}</td>
-                    <td>{{$p->adress}}</td>
-                    <td>{{$p->kelgan_sana}}</td>
-                    <td>{{$p->tel}}</td>
-                    <td>{{$p->pnomer}}</td>
-                    <td>
-                    <a class="collapse-item d-inline-block" href="login.html">{{__('Qarzni to`lash')}}</a><br>
-                    </td>
-                    </tr>
-                    @endforeach
+                    {{--@foreach($patient as $p)--}}
+                    {{--<tr>--}}
+                    {{--<td>{{$p->id}}</td>--}}
+                    {{--<td>{{$p->pname." ".$p->psurname}}</td>--}}
+                    {{--<td>{{$p->yoshi}}</td>--}}
+                    {{--<td>{{$p->adress}}</td>--}}
+                    {{--<td>{{$p->kelgan_sana}}</td>--}}
+                    {{--<td>{{$p->tel}}</td>--}}
+                    {{--<td>{{$p->pnomer}}</td>--}}
+                    {{--<td>--}}
+                    {{--<a class="collapse-item d-inline-block" href="login.html">{{__('Qarzni to`lash')}}</a><br>--}}
+                    {{--</td>--}}
+                    {{--</tr>--}}
+                    {{--@endforeach--}}
 
                     </tbody>
                 </table>
@@ -99,18 +99,18 @@
                     </tfoot>
                     <tbody>
 
-                    @foreach($patient as $p)
-                    <tr>
-                    <td>{{$p->id}}</td>
-                    <td>{{$p->pname." ".$p->psurname}}</td>
-                    <td>{{$p->yoshi}}</td>
-                    <td>{{$p->adress}}</td>
-                    <td>{{$p->kelgan_sana}}</td>
-                    <td>{{$p->tel}}</td>
-                    <td>{{$p->pnomer}}</td>
+                    {{--@foreach($patient as $p)--}}
+                    {{--<tr>--}}
+                    {{--<td>{{$p->id}}</td>--}}
+                    {{--<td>{{$p->pname." ".$p->psurname}}</td>--}}
+                    {{--<td>{{$p->yoshi}}</td>--}}
+                    {{--<td>{{$p->adress}}</td>--}}
+                    {{--<td>{{$p->kelgan_sana}}</td>--}}
+                    {{--<td>{{$p->tel}}</td>--}}
+                    {{--<td>{{$p->pnomer}}</td>--}}
 
-                    </tr>
-                    @endforeach
+                    {{--</tr>--}}
+                    {{--@endforeach--}}
 
                     </tbody>
                 </table>

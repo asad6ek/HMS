@@ -11,9 +11,9 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">{{__('Bemor Qo`shish')}}</h1>
                     </div>
-                    <form class="user"  method="POST" action="{{  }}">
+                    <form class="user" method="POST" action="{{ route('patient.store') }}">
                         @csrf
-
+                       @method('POST')
 
 
 

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @extends('layouts.menu')
 
 @section('page')
@@ -46,34 +47,34 @@
                         </tfoot>
                         <tbody>
 
-{{--                        @foreach($patient as $p)--}}
-{{--                            <tr>--}}
-{{--                                <td>{{$p->id}}</td>--}}
-{{--                                <td>{{$p->pname." ".$p->psurname}}</td>--}}
-{{--                                <td>{{$p->yoshi}}</td>--}}
-{{--                                <td>{{$p->adress}}</td>--}}
-{{--                                <td>{{$p->kelgan_sana}}</td>--}}
-{{--                                <td>{{$p->tel}}</td>--}}
-{{--                                <td>{{$p->pnomer}}</td>--}}
-{{--                                <td>--}}
-{{--                                    <ul>--}}
-{{--                                        <li class="nav-item">--}}
-{{--                                            <a class=" collapse-item" href="#" data-toggle="collapse" data-target="#a{{$p->id}}" aria-expanded="true" aria-controls="collapsePages">--}}
-{{--                                                <span>Pages</span>--}}
-{{--                                            </a>--}}
-{{--                                            <div id="a{{$p->id}}" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">--}}
-{{--                                                <div class="bg-white py-2 collapse-inner rounded">--}}
-{{--                                                    <a class="collapse-item d-inline-block" href="#">{{__('Davolash')}}</a><br>--}}
-{{--                                                    <a class="collapse-item d-inline-block" href="#">{{__('O`chirish')}}</a><br>--}}
-{{--                                                    <a class="collapse-item d-inline-block" href="#">{{__('Yangilash')}}</a><br>--}}
-{{--                                                    <a class="collapse-item d-inline-block" href="#">{{__('Tashrif')}}</a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </ul>--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
+                        @foreach($patient as $p)
+                            <tr>
+                                <td>{{$p->id}}</td>
+                                <td>{{$p->pname." ".$p->psurname}}</td>
+                                <td>{{$p->yoshi}}</td>
+                                <td>{{$p->adress}}</td>
+                                <td>{{$p->kelgan_sana}}</td>
+                                <td>{{$p->tel}}</td>
+                                <td>{{$p->pnomer}}</td>
+                                <td>
+                                    <ul>
+                                        <li class="nav-item">
+                                            <a class=" collapse-item" href="#" data-toggle="collapse" data-target="#a{{$p->id}}" aria-expanded="true" aria-controls="collapsePages">
+                                                <span>Pages</span>
+                                            </a>
+                                            <div id="a{{$p->id}}" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                                                <div class="bg-white py-2 collapse-inner rounded">
+                                                    <a class="collapse-item d-inline-block" href="#">{{__('Davolash')}}</a><br>
+                                                    <a class="collapse-item d-inline-block" href="#">{{__('O`chirish')}}</a><br>
+                                                    <a class="collapse-item d-inline-block" href="#">{{__('Yangilash')}}</a><br>
+                                                    <a class="collapse-item d-inline-block" href="#">{{__('Tashrif')}}</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        @endforeach
 
                         </tbody>
                     </table>

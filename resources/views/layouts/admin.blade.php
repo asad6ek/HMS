@@ -323,7 +323,7 @@
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- Page level plugins -->
 
-{{--<!-- Page level custom scripts -->--}}
+<!-- Page level custom scripts -->
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
